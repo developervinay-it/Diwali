@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Crackerz Participants</title>
+     <link href="index.html" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-shadow: 0 0 20px #ff8c00, 0 0 40px #ff0080, 0 0 60px #ffd700;
+        }
+
+        .participants {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .participant-box {
+            background: rgba(255, 140, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 10px #ff0080, 0 0 15px #ffd700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .participant-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ff0080, 0 0 50px #ffd700;
+        }
+
+        .diya-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 30px 0;
+        }
+
+        .diya {
+            width: 60px;
+            filter: drop-shadow(0 0 20px #ff0080) drop-shadow(0 0 35px #ffd700);
+            animation: moveDiya 3s ease-in-out infinite;
+        }
+
+        @keyframes moveDiya {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Crackerz Participants ✨</h1>
+
+    <div class="diya-container">
+      
+    </div>
+
+    <div class="participants">
+        <div class="participant-box">KHUSHI</div>
+        <div class="participant-box">LAKSHITA</div>
+        <div class="participant-box">PALAK</div>
+        <div class="participant-box">IFRA</div>
+        <div class="participant-box">SONAM</div>
+        <div class="participant-box">MAHWISH</div>
+        <div class="participant-box">SATYAM</div>
+        <div class="participant-box">DEVESH</div>
+        <div class="participant-box">ANKUSH</div>
+        <div class="participant-box">ZAID</div>
+        <div class="participant-box">OMKAR</div>
+        <div class="participant-box">SHIVAM</div>
+        <div class="participant-box">ANIRUDH</div>
+        <div class="participant-box">JUNED</div>
+        <div class="participant-box">VINAY</div>
+    </div>
+
+    <footer>✨ Happy Diwali from BCA C-Department ✨</footer>
+
+</body>
+</html>

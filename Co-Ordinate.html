@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diwali Coordinator</title>
+  <link href="index.html" rel="stylesheet">
+  <style>
+    /* General body setup */
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(ellipse at bottom, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      font-family: 'Poppins', sans-serif;
+      flex-direction: column;
+      overflow: hidden;
+      color: #fff;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Box around the content */
+    .box {
+      padding: 60px 80px;
+      border-radius: 30px;
+      text-align: center;
+      background: rgba(15, 12, 41, 0.7);
+      backdrop-filter: blur(15px);
+      box-shadow: 
+        0 0 40px rgba(255, 215, 0, 0.6),
+        0 0 80px rgba(255, 140, 0, 0.4),
+        0 0 120px rgba(255, 69, 0, 0.2),
+        inset 0 0 60px rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 215, 0, 0.5);
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      width: 90%;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-15px) rotate(0.5deg); }
+      66% { transform: translateY(10px) rotate(-0.5deg); }
+    }
+
+    /* CO-ORDINATOR title */
+    .box h1 {
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #ffd700, #ff8c00, #ff4500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      position: relative;
+      display: inline-block;
+    }
+
+    .box h1::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffd700, transparent);
+      bottom: -10px;
+      left: 0;
+      border-radius: 50%;
+      animation: shimmer 3s ease infinite;
+    }
+
+    /* Name with gradient */
+    .box h2 {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #ffd700, #ff8c00, #ff4da6, #8b5cf6, #00d4ff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease infinite, flicker 2s infinite alternate;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      letter-spacing: 2px;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 10px 0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes flicker {
+      0% { 
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.4); 
+      }
+      50% { 
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.6), 0 0 60px rgba(255, 69, 0, 0.4); 
+      }
+      100% { 
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.4); 
+      }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* Enhanced sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff, #ffd700, transparent);
+      animation: sparkleAnim 3s infinite;
+      z-index: 5;
+    }
+
+    @keyframes sparkleAnim {
+      0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0.5) rotate(360deg); }
+    }
+
+    /* Diya decorations */
+    .diya {
+      position: absolute;
+      width: 80px;
+      height: 40px;
+      background: linear-gradient(to bottom, #ff8c00, #ff4500);
+      border-radius: 50% 50% 0 0;
+      bottom: 10%;
+      animation: diyaFlicker 2s infinite alternate;
+      box-shadow: 0 0 20px #ff8c00;
+      z-index: 5;
+    }
+
+    .diya::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: #ffd700;
+      border-radius: 50% 50% 0 0;
+      top: -10px;
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    .diya::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 30px;
+      background: #ffd700;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50% 50% 0 0;
+      box-shadow: 0 0 20px #ff8c00;
+    }
+
+    .diya.left {
+      left: 10%;
+    }
+
+    .diya.right {
+      right: 10%;
+    }
+
+    @keyframes diyaFlicker {
+      0%, 100% { 
+        opacity: 1; 
+        box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff4500;
+      }
+      50% { 
+        opacity: 0.8; 
+        box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff4500;
+      }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      border-radius: 50%;
+      animation: explode 2s forwards;
+      z-index: 1;
+    }
+
+    @keyframes explode {
+      0% { 
+        transform: translateY(100vh); 
+        opacity: 1; 
+        width: 5px; 
+        height: 5px; 
+      }
+      80% { 
+        opacity: 1; 
+      }
+      100% { 
+        transform: translateY(0) scale(2); 
+        opacity: 0; 
+        width: 200px; 
+        height: 200px; 
+      }
+    }
+
+    /* Floating elements */
+    .floating-element {
+      position: absolute;
+      font-size: 1.5rem;
+      color: #ffd700;
+      opacity: 0.7;
+      animation: floatAround 20s infinite linear;
+      z-index: 2;
+    }
+
+    @keyframes floatAround {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(100px, 100px) rotate(90deg); }
+      50% { transform: translate(50px, 200px) rotate(180deg); }
+      75% { transform: translate(-50px, 100px) rotate(270deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    /* Rangoli pattern */
+    .rangoli {
+      position: fixed;
+      bottom: 20px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, transparent 30%, rgba(255, 215, 0, 0.1) 70%);
+      border-radius: 50%;
+      opacity: 0.5;
+      z-index: 0;
+      animation: rotate 30s linear infinite;
+    }
+
+    .rangoli::before, .rangoli::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px dashed rgba(255, 215, 0, 0.3);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+
+    .rangoli::after {
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Footer message */
+    .footer-message {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1.2rem;
+      color: #ffd700;
+      text-align: center;
+      width: 100%;
+      opacity: 0.8;
+      animation: fadeIn 5s ease;
+      z-index: 10;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 0.8; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .box {
+        padding: 40px 30px;
+        width: 85%;
+      }
+      
+      .box h1 {
+        font-size: 2.5rem;
+      }
+      
+      .box h2 {
+        font-size: 2.8rem;
+      }
+      
+      .diya {
+        width: 60px;
+        height: 30px;
+      }
+      
+      .rangoli {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background elements -->
+  <div class="rangoli"></div>
+  
+  <!-- Diya decorations -->
+  <div class="diya left"></div>
+  <div class="diya right"></div>
+  
+  <!-- Main content box -->
+  <div class="box">
+    <h1>CO-ORDINATOR</h1>
+    <h2>SURABHI SINGH</h2>
+  </div>
+  
+  <!-- Footer message -->
+  <div class="footer-message">
+    Wishing you a sparkling Diwali filled with joy and prosperity!
+  </div>
+
+  <script>
+    // Create sparkles
+    function createSparkles() {
+      const sparkleCount = 20;
+      for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 3 + 's';
+        document.body.appendChild(sparkle);
+      }
+    }
+    
+    // Create floating elements
+    function createFloatingElements() {
+      const elements = ['✨', '🪔', '🎆', '🎇', '❤️', '🥳', '🙏'];
+      for (let i = 0; i < 10; i++) {
+        const element = document.createElement('div');
+        element.className = 'floating-element';
+        element.textContent = elements[Math.floor(Math.random() * elements.length)];
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.style.animationDuration = (15 + Math.random() * 10) + 's';
+        element.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(element);
+      }
+    }
+    
+    // Create fireworks
+    function createFireworks() {
+      const colors = ['#FFD700', '#FF8C00', '#FF4500', '#8B5CF6', '#00D4FF'];
+      
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          const firework = document.createElement('div');
+          firework.className = 'firework';
+          firework.style.left = Math.random() * 100 + '%';
+          firework.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
+          document.body.appendChild(firework);
+          
+          setTimeout(() => {
+            firework.remove();
+          }, 2000);
+        }
+      }, 1000);
+    }
+    
+    // Initialize when page loads
+    window.addEventListener('load', () => {
+      createSparkles();
+      createFloatingElements();
+      createFireworks();
+    });
+  </script>
+</body>
+</html>

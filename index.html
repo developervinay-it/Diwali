@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Diwali ✨</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      background: radial-gradient(ellipse at bottom, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 2s ease;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 5rem;
+      background: linear-gradient(45deg, #ff0080, #ff8c00, #ffd700, #00ff88, #00d4ff, #8b5cf6, #ff0080);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      letter-spacing: 5px;
+      animation: gradientShift 3s ease infinite, float 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      filter: drop-shadow(0 0 20px rgba(255, 0, 128, 0.8)) drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
+    }
+
+    h2 {
+      font-size: 2rem;
+      background: linear-gradient(90deg, #ff0080, #ff8c00, #00ff88, #00d4ff, #8b5cf6, #ff0080);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      animation: gradientFlow 4s ease infinite;
+      filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.6)) drop-shadow(0 0 25px rgba(0, 212, 255, 0.4));
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #ffd700, #ff8c00, #ff0080, #8b5cf6);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out, pulse 2s ease-in-out infinite, gradientFlow 4s ease infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 128, 0.5));
+    }
+
+    .diya-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 150px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .diya {
+      width: 140px;
+      filter: drop-shadow(0 0 25px #ff0080) drop-shadow(0 0 50px #00d4ff) drop-shadow(0 0 35px #ffd700);
+      animation: moveDiya 4s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .diya:hover {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .diya.right {
+      animation-delay: 2s;
+    }
+
+    .flame-particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #ff0080, #ffd700, #00d4ff);
+      border-radius: 50%;
+      animation: floatUp 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-150px) scale(0); opacity: 0; }
+    }
+
+    @keyframes moveDiya {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      25% { transform: translateY(-20px) translateX(15px) rotate(3deg); }
+      50% { transform: translateY(0) translateX(0) rotate(0deg); }
+      75% { transform: translateY(20px) translateX(-15px) rotate(-3deg); }
+      100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ff0080, #ff8c00, #ffd700, #00ff88, #00d4ff, #8b5cf6);
+      background-size: 300% 300%;
+      border: 2px solid rgba(255, 0, 128, 0.8);
+      padding: 15px 35px;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 0 30px rgba(255, 0, 128, 0.6), 0 0 50px rgba(0, 212, 255, 0.4), 0 5px 15px rgba(139, 92, 246, 0.3);
+      margin-top: 50px;
+      animation: gradientShift 3s ease infinite;
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .btn:hover {
+      transform: scale(1.15) translateY(-5px);
+      box-shadow: 0 0 50px rgba(255, 0, 128, 0.9), 0 0 70px rgba(0, 212, 255, 0.7), 0 10px 25px rgba(139, 92, 246, 0.5);
+      border-color: rgba(0, 212, 255, 0.9);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 1.3rem;
+      background: linear-gradient(90deg, #ff0080, #ff8c00, #ffd700, #00ff88, #00d4ff, #8b5cf6, #ff0080);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeIn 4s ease-in-out, gradientFlow 5s ease infinite;
+      filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.5)) drop-shadow(0 0 25px rgba(0, 212, 255, 0.3));
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .popup {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0c29 100%);
+      padding: 50px 60px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 0 50px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 212, 255, 0.4), 0 0 150px rgba(139, 92, 246, 0.3);
+      color: #ffd700;
+      animation: popupFade 1.5s ease-in-out;
+      border: 3px solid rgba(255, 0, 128, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .popup::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 0, 128, 0.15) 0%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+      animation: rotateGlow 10s linear infinite;
+    }
+
+    @keyframes rotateGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .popup h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(45deg, #ff0080, #ffd700, #00d4ff, #8b5cf6);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease infinite, float 3s ease-in-out infinite;
+    }
+
+    .popup button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: 2px solid rgba(255, 0, 128, 0.8);
+      border-radius: 50px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff0080, #ff8c00, #ffd700, #00d4ff);
+      background-size: 200% 200%;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(255, 0, 128, 0.5), 0 0 50px rgba(0, 212, 255, 0.3);
+      transition: 0.3s;
+      position: relative;
+      z-index: 1;
+      animation: gradientShift 3s ease infinite;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup button:hover {
+      transform: scale(1.15) translateY(-3px);
+      box-shadow: 0 0 50px rgba(255, 0, 128, 0.9), 0 0 70px rgba(0, 212, 255, 0.6);
+      border-color: rgba(0, 212, 255, 0.9);
+    }
+
+    @keyframes popupFade {
+      from { opacity: 0; transform: scale(0.8) translateY(-50px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .coordinator {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1rem;
+      color: #ffd700;
+      text-shadow: 0 0 5px #ff0080, 0 0 10px #00d4ff;
+      font-weight: 600;
+      z-index: 100;
+      display: none;
+    }
+
+    .participants {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 1rem;
+      color: #ffd700;
+      text-shadow: 0 0 5px #ff0080, 0 0 10px #00d4ff;
+      font-weight: 600;
+      z-index: 100;
+      display: none;
+    }
+    <style>
+  /* Existing styles remain, add these media queries at the end of your CSS */
+
+  @media (max-width: 1024px) {
+    h1 { font-size: 4rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.5rem; }
+    .diya-container { gap: 100px; flex-wrap: wrap; }
+    .diya { width: 110px; }
+    .btn { padding: 12px 30px; font-size: 1rem; }
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.3rem; }
+    .diya-container { gap: 70px; }
+    .diya { width: 90px; }
+    .btn { padding: 10px 25px; font-size: 0.9rem; }
+    footer { font-size: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.1rem; }
+    h3 { font-size: 1rem; }
+    .diya-container { gap: 50px; }
+    .diya { width: 70px; }
+    .btn { padding: 8px 20px; font-size: 0.85rem; }
+    footer { font-size: 0.9rem; }
+  }
+</style>
+
+  </style>
+</head>
+<body>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <h1>🎓 Mangalmay Group of Institutions 🎓</h1>
+      <p style="font-size: 1.2rem; margin-top: 20px; background: linear-gradient(90deg, #00ff88, #00d4ff, #8b5cf6); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientFlow 3s ease infinite;">Wishing you a bright and prosperous Diwali!</p>
+      <button onclick="closePopup()">🪔 Continue to Celebration 🪔</button>
+    </div>
+  </div>
+
+  <div class="stars" id="stars"></div>
+  <canvas id="canvas"></canvas>
+
+  <div class="container">
+    <h3>🎓 Happy Diwali from Mangalmay 🎓</h3>
+    <h1>✨ Festival of Lights ✨</h1>
+    <h2>May your life sparkle with joy and prosperity!</h2>
+    <div class="diya-container"></div>
+    <button class="btn" onclick="playMusic()">🎶 Play Festive Music 🎶</button>
+    <footer>✨  Happy Diwali from BCA Department  ✨</footer>
+  </div>
+
+  <a href="./Co-Ordinate.html" class="coordinator" id="coordinator">Faculty Co-ordinator</div>
+  <a href="./parcipantsname.html" class="participants" id="participants">CrackerZ Participants</div>
+
+  <audio id="bg-music" loop>
+    <source src="WhatsApp Audio 2025-10-15 at 22.05.52_9b4e5c07.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('coordinator').style.display = 'block';
+      document.getElementById('participants').style.display = 'block';
+    }
+
+    function playMusic() {
+      const music = document.getElementById('bg-music');
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // Create twinkling stars
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // Canvas fireworks code...
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const fireworks = [];
+    function random(min, max) { return Math.random() * (max - min) + min; }
+
+    class Firework {
+      constructor() {
+        this.x = random(w * 0.2, w * 0.8);
+        this.y = h;
+        this.targetY = random(h / 4, h / 2);
+        this.hue = random(0, 360);
+        this.color = `hsl(${this.hue}, 100%, 60%)`;
+        this.speed = random(4, 7);
+        this.trail = [];
+      }
+      update() {
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > 10) this.trail.shift();
+        this.y -= this.speed;
+        if (this.y < this.targetY) {
+          for (let i = 0; i < 50; i++) fireworks.push(new Particle(this.x, this.y, this.hue));
+          this.done = true;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        for (let i = 0; i < this.trail.length; i++) {
+          const t = this.trail[i];
+          ctx.lineTo(t.x, t.y);
+        }
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, hue) {
+        this.x = x;
+        this.y = y;
+        this.hue = hue + random(-20, 20);
+        this.color = `hsl(${this.hue}, 100%, 60%)`;
+        this.radius = random(2, 4);
+        const angle = random(0, Math.PI * 2);
+        const speed = random(2, 8);
+        this.speedX = Math.cos(angle) * speed;
+        this.speedY = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.decay = random(0.015, 0.03);
+        this.gravity = 0.1;
+      }
+      update() {
+        this.speedY += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= this.decay;
+        if (this.alpha <= 0) this.done = true;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    let frameCount = 0;
+    function loop() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, w, h);
+      frameCount++;
+      if (frameCount % 30 === 0 && Math.random() > 0.3) fireworks.push(new Firework());
+      for (let i = fireworks.length - 1; i >= 0; i--) {
+        fireworks[i].update();
+        fireworks[i].draw();
+        if (fireworks[i].done) fireworks.splice(i, 1);
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
