@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diwali Coordinator</title>
-  <link href="index.html" rel="stylesheet">
   <style>
-    /* General body setup */
     body {
       height: 100vh;
       display: flex;
@@ -22,7 +20,6 @@
       padding: 0;
     }
 
-    /* Box around the content */
     .box {
       padding: 60px 80px;
       border-radius: 30px;
@@ -48,10 +45,9 @@
       66% { transform: translateY(10px) rotate(-0.5deg); }
     }
 
-    /* CO-ORDINATOR title */
     .box h1 {
       font-size: 3.5rem;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       font-family: 'Playfair Display', serif;
       background: linear-gradient(135deg, #ffd700, #ff8c00, #ff4500);
       -webkit-background-clip: text;
@@ -74,21 +70,37 @@
       animation: shimmer 3s ease infinite;
     }
 
-    /* Name with gradient */
-    .box h2 {
-      font-size: 4rem;
+    .name-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .name {
+      font-size: 2.8rem;
       font-weight: bold;
-      background: linear-gradient(135deg, #ffd700, #ff8c00, #ff4da6, #8b5cf6, #00d4ff);
-      background-size: 300% 300%;
+      text-align: center;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradientShift 4s ease infinite, flicker 2s infinite alternate;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-      letter-spacing: 2px;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 10px 0;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      animation: flicker 2.5s infinite alternate, gradientShift 6s ease infinite;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .name:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    }
+
+    .name1 {
+      background-image: linear-gradient(135deg, #ffd700, #ff69b4, #8a2be2);
+    }
+    .name2 {
+      background-image: linear-gradient(135deg, #00d4ff, #00ff9d, #ffd700);
+    }
+    .name3 {
+      background-image: linear-gradient(135deg, #ff4500, #ff8c00, #ffd700);
     }
 
     @keyframes gradientShift {
@@ -98,15 +110,8 @@
     }
 
     @keyframes flicker {
-      0% { 
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.4); 
-      }
-      50% { 
-        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.6), 0 0 60px rgba(255, 69, 0, 0.4); 
-      }
-      100% { 
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.4); 
-      }
+      0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+      50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.6); }
     }
 
     @keyframes shimmer {
@@ -114,7 +119,6 @@
       50% { opacity: 1; }
     }
 
-    /* Enhanced sparkles */
     .sparkle {
       position: absolute;
       width: 6px;
@@ -131,7 +135,6 @@
       100% { opacity: 0; transform: scale(0.5) rotate(360deg); }
     }
 
-    /* Diya decorations */
     .diya {
       position: absolute;
       width: 80px;
@@ -168,26 +171,14 @@
       box-shadow: 0 0 20px #ff8c00;
     }
 
-    .diya.left {
-      left: 10%;
-    }
-
-    .diya.right {
-      right: 10%;
-    }
+    .diya.left { left: 10%; }
+    .diya.right { right: 10%; }
 
     @keyframes diyaFlicker {
-      0%, 100% { 
-        opacity: 1; 
-        box-shadow: 0 0 20px #ff8c00, 0 0 40px #ff4500;
-      }
-      50% { 
-        opacity: 0.8; 
-        box-shadow: 0 0 10px #ff8c00, 0 0 20px #ff4500;
-      }
+      0%, 100% { opacity: 1; box-shadow: 0 0 20px #ff8c00; }
+      50% { opacity: 0.8; box-shadow: 0 0 10px #ff8c00; }
     }
 
-    /* Fireworks */
     .firework {
       position: absolute;
       border-radius: 50%;
@@ -196,24 +187,10 @@
     }
 
     @keyframes explode {
-      0% { 
-        transform: translateY(100vh); 
-        opacity: 1; 
-        width: 5px; 
-        height: 5px; 
-      }
-      80% { 
-        opacity: 1; 
-      }
-      100% { 
-        transform: translateY(0) scale(2); 
-        opacity: 0; 
-        width: 200px; 
-        height: 200px; 
-      }
+      0% { transform: translateY(100vh); opacity: 1; width: 5px; height: 5px; }
+      100% { transform: translateY(0) scale(2); opacity: 0; width: 200px; height: 200px; }
     }
 
-    /* Floating elements */
     .floating-element {
       position: absolute;
       font-size: 1.5rem;
@@ -231,7 +208,6 @@
       100% { transform: translate(0, 0) rotate(360deg); }
     }
 
-    /* Rangoli pattern */
     .rangoli {
       position: fixed;
       bottom: 20px;
@@ -267,7 +243,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Footer message */
     .footer-message {
       position: absolute;
       bottom: 20px;
@@ -285,26 +260,25 @@
       to { opacity: 0.8; }
     }
 
-    /* Responsive design */
     @media (max-width: 768px) {
       .box {
         padding: 40px 30px;
         width: 85%;
       }
-      
+
       .box h1 {
         font-size: 2.5rem;
       }
-      
-      .box h2 {
-        font-size: 2.8rem;
+
+      .name {
+        font-size: 2.2rem;
       }
-      
+
       .diya {
         width: 60px;
         height: 30px;
       }
-      
+
       .rangoli {
         width: 250px;
         height: 250px;
@@ -323,9 +297,11 @@
   <!-- Main content box -->
   <div class="box">
     <h1>CO-ORDINATOR</h1>
-    <h3>Ms. Surabhi Singh</h3><br>
-    <h3>Ms. Preeti Singhal</h3><br>
-    <h3>Mr. Kundan Rai</h3>
+    <div class="name-list">
+      <h2 class="name name1">Ms. Surabhi Singh</h2>
+      <h2 class="name name2">Ms. Preeti Singhal</h2>
+      <h2 class="name name3">Mr. Kundan Rai</h2>
+    </div>
   </div>
   
   <!-- Footer message -->
@@ -346,7 +322,7 @@
         document.body.appendChild(sparkle);
       }
     }
-    
+
     // Create floating elements
     function createFloatingElements() {
       const elements = ['✨', '🪔', '🎆', '🎇', '❤️', '🥳', '🙏'];
@@ -361,11 +337,10 @@
         document.body.appendChild(element);
       }
     }
-    
+
     // Create fireworks
     function createFireworks() {
       const colors = ['#FFD700', '#FF8C00', '#FF4500', '#8B5CF6', '#00D4FF'];
-      
       setInterval(() => {
         if (Math.random() > 0.7) {
           const firework = document.createElement('div');
@@ -373,15 +348,13 @@
           firework.style.left = Math.random() * 100 + '%';
           firework.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
           document.body.appendChild(firework);
-          
           setTimeout(() => {
             firework.remove();
           }, 2000);
         }
       }, 1000);
     }
-    
-    // Initialize when page loads
+
     window.addEventListener('load', () => {
       createSparkles();
       createFloatingElements();
@@ -389,5 +362,4 @@
     });
   </script>
 </body>
-
 </html>
